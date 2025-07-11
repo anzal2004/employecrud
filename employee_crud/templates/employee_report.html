@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Report</title>
+</head>
+<body>
+    <h2>Employee Report</h2>
+
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Name</th><th>Username</th><th>Email</th><th>City</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user[0] }}</td>
+            <td>{{ user[1] }}</td>
+            <td>{{ user[2] }}</td>
+            <td>{{ user[3] }}</td>
+            <td>{{ user[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+
+    <a href="{{ url_for('report.export_employee_report', format='xlsx') }}">Download XLSX</a> |
+    <a href="{{ url_for('report.export_employee_report', format='pdf') }}">Download PDF</a>
+</body>
+</html>
